@@ -100,3 +100,9 @@ Then inclde a frame as below -
 \end{frame}
 %--------------------------------------------------------
 ```
+
+## How to open a .pdf on `acrobat reader` from command line?
+
+```
+open -a Adobe\ Acrobat talk-Tapas-Sahoo.pdf
+```
