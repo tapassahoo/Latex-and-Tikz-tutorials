@@ -84,3 +84,19 @@ First ddd the below segment in the preamble.
 \ExplSyntaxOff
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ```
+
+Then inclde a frame as below -
+
+```
+ Here I embed a movie in my slide
+%--------------------------------------------------------
+\begin{frame}
+\frametitle{Quantum molecular dynamics of water}
+%\section{autoplay}
+\centering
+\embedvideo*{\includegraphics[page=1]{example-movie}}{/Users/tsahoo/Documents/write-ups-for-academic-positions/images/ice_freezing_video_small.mov}
+%\section{play on click}
+%\embedvideo{\includegraphics[page=1]{example-movie}}{/Users/tsahoo/Documents/write-ups-for-academic-positions/images/ice_freezing_video_small.mov}
+\end{frame}
+%--------------------------------------------------------
+```
