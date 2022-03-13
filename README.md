@@ -106,3 +106,66 @@ Then inclde a frame as below -
 ```
 open -a Adobe\ Acrobat talk-Tapas-Sahoo.pdf
 ```
+
+## Beamer references for placing the references at footnote
+
+```
+\documentclass[10pt]{beamer}
+
+\usetheme[width=4em]{PaloAlto}
+\usecolortheme{crane}
+
+\addtobeamertemplate{footnote}{\vspace{-6pt}\advance\hsize-0.5cm}{\vspace{6pt}}
+\makeatletter
+% Alternative A: footnote rule
+\renewcommand*{\footnoterule}{\kern -3pt \hrule \@width 2in \kern 8.6pt}
+% Alternative B: no footnote rule
+% \renewcommand*{\footnoterule}{\kern 6pt}
+\makeatother
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-tabla]{babel}  
+\usepackage[style=verbose,autocite=footnote]{biblatex}
+
+\usepackage{filecontents}
+
+\begin{filecontents}{\jobname.bib}
+@Book{Taflove2000,
+    Day = {30},
+    Edition = {2},
+    Month = {jun},
+    Publisher = {Artech House Publishers},
+    author = {Taflove, Allen and Hagness, Susan C.},
+    title = {Computational Electrodynamics: The Finite-Difference Time-Domain Method},
+    year = {2000},
+}
+\end{filecontents}
+
+\addbibresource{\jobname.bib}
+
+\begin{document}
+
+\begin{frame}{The FDTD Method}
+  \begin{columns}
+    \begin{column}{0.4\textwidth}
+      \begin{itemize}
+      \item Discretization of both space and time by central differences.
+      \item Yee Cell.\footnotemark 
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+      \centering
+      \rule{0.9\columnwidth}{2cm}% placeholder for graphic
+      \caption{Unit Yee Cell.}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\footcitetext{Taflove2000}
+\end{frame}
+
+\end{document}
+```
+
+For more information [see](https://tex.stackexchange.com/questions/44217/how-can-i-stop-footcite-from-hijacking-my-beamer-columns)
