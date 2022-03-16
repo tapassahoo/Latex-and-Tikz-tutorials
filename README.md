@@ -169,3 +169,16 @@ open -a Adobe\ Acrobat talk-Tapas-Sahoo.pdf
 ```
 
 For more information [see](https://tex.stackexchange.com/questions/44217/how-can-i-stop-footcite-from-hijacking-my-beamer-columns)
+
+## LaTeX/Tips and Tricks
+[Click](https://en.wikibooks.org/wiki/LaTeX/Tips_and_Tricks)
+
+- [x] Spell-checking and Word Counting
+
+If you want to spell-check your document, you can use the command-line aspell, hunspell (preferably), or ispell programs.
+
+  ```
+ispell yourfile.tex
+aspell --mode=tex -c yourfile.tex
+hunspell -l -t -i utf-8 yourfile.tex
+```
