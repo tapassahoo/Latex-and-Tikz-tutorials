@@ -188,7 +188,7 @@ hunspell -l -t -i utf-8 yourfile.tex
 [Click](https://gitlab.com/frasottile/latex-and-makefile/-/blob/master/Makefile)
 
 ```
-```PROJECT = 'latex_and_Makefile' 
+PROJECT = 'latex_and_Makefile' 
 MAIN = article
 TEX_SOURCES = Makefile \
               $(MAIN).tex \
