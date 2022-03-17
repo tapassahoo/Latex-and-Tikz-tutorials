@@ -241,3 +241,19 @@ zip:
 	
 .PHONY: clean all
 ```
+
+## How to create own package
+
+```
+\ProvidesPackage{mystyle}
+\usepackage[margin=2cm,bottom=3cm]{geometry}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{makeidx}
+\makeindex
+\usepackage[backend=bibtex,style=phys]{biblatex}
+\addbibresource{references.bib}
+\author{Francesco}
+\title{Compiling \LaTeX\ projects :: use of Makefile \includegraphics[width=1cm]{images/splash.png}
+
+```
