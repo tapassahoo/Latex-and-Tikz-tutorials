@@ -267,3 +267,17 @@ I’ve seen hundreds of talks with slides prepared in Beamer. I’ve yet to see 
 ```
 \setbeamertemplate{navigation symbols}{}
 ```
+
+- [x] Columns
+
+A good way to line up graphics side by side, especially if they are of different heights, is with Beamer’s columns environment:
+
+
+```
+\begin{columns}[c] % Columns centered vertically.
+\column{5.5cm}     % Adjust column width to taste.
+\includegraphics ...
+\column{5cm}
+\includegraphics ...
+\end{columns}
+```
