@@ -257,3 +257,13 @@ zip:
 \title{Compiling \LaTeX\ projects :: use of Makefile \includegraphics[width=1cm]{images/splash.png}
 
 ```
+
+## Top 5 Beamer Tips
+
+- [x] Navigation Symbols
+
+I’ve seen hundreds of talks with slides prepared in Beamer. I’ve yet to see anyone use the navigation symbols that Beamer puts at the bottom right-hand corner of the screen. These should be turned off with
+
+```
+\setbeamertemplate{navigation symbols}{}
+```
