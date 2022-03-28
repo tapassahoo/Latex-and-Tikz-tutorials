@@ -317,4 +317,8 @@ In a longer talk it can be useful to break the talk into sections and produce an
                   \usebeamerfont{myTOC}\tableofcontents[current]}}
 ```
 
-and then typing `\section[short_title]{long_title}` between frames, where short_title is used for the headline (the line at the top of the screen that can contain various types of information, intended to help the audience know where you are in the talk). In this code I have increased the size of the font used for the outline and made it bold. If you don’t want the headline it can be turned off with
+and then typing `\section[short_title]{long_title}` between frames, where `short_title` is used for the headline (the line at the top of the screen that can contain various types of information, intended to help the audience know where you are in the talk). In this code I have increased the size of the font used for the outline and made it bold. If you don’t want the headline it can be turned off with
+
+```
+\setbeamertemplate{headline}{}
+```
