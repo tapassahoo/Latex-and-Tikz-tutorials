@@ -281,3 +281,17 @@ A good way to line up graphics side by side, especially if they are of different
 \includegraphics ...
 \end{columns}
 ```
+
+- [x] Extra Slides
+
+If you include extra slides at the end of your talk, you can stop them affecting the page count (usually shown in the footer) as follows:
+
+```
+\usepackage{appendixnumberbeamer} 
+...
+\appendix 
+\begin{frame}{First Extra slide}
+...
+```
+
+The appendixnumberbeamer package might not be included in your LaTeX distribution, in which case you can download it from [CTAN](https://www.ctan.org/pkg/appendixnumberbeamer).
