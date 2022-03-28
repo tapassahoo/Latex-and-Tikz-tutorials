@@ -258,7 +258,7 @@ zip:
 
 ```
 
-## Top 5 Beamer Tips
+## [Top 5 Beamer Tips](https://nhigham.com/2013/01/18/top-5-beamer-tips/)
 
 - [x] Navigation Symbols
 
