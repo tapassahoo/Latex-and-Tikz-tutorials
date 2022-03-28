@@ -295,3 +295,15 @@ If you include extra slides at the end of your talk, you can stop them affecting
 ```
 
 The appendixnumberbeamer package might not be included in your LaTeX distribution, in which case you can download it from [CTAN](https://www.ctan.org/pkg/appendixnumberbeamer).
+
+- [x] References
+
+You can include references in your slides using the following code, best placed after \appendix:
+
+```
+\begin{frame}[allowframebreaks]{References}
+\def\newblock{}
+\bibliographystyle{plain}
+\bibliography{mybib}
+\end{frame}
+```
