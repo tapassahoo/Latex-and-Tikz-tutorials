@@ -322,3 +322,5 @@ and then typing `\section[short_title]{long_title}` between frames, where `short
 ```
 \setbeamertemplate{headline}{}
 ```
+
+## [Top BibTeX Tips](https://nhigham.com/tag/bibtex/)
