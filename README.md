@@ -328,7 +328,3 @@ and then typing `\section[short_title]{long_title}` between frames, where `short
 ## Cross out with arrow as in "goes to zero" [duplicate]
 
 - [x] Invoke the package `\usepackage{cancel}` then use the following command `\cancelto{0}{x}` in math mode where `x` is being cancelled to the number zero. A `\cancel{x}` cross the term out without any number.
-
-```
-\cancelto<2>{0}{x}(1-x)=0
-```
