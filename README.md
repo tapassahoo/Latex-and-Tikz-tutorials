@@ -328,3 +328,75 @@ and then typing `\section[short_title]{long_title}` between frames, where `short
 ## Cross out with arrow as in "goes to zero" [duplicate]
 
 - [x] Invoke the package `\usepackage{cancel}` then use the following command `\cancelto{0}{x}` in math mode where `x` is being cancelled to the number zero. A `\cancel{x}` cross the term out without any number.
+
+## Text under equation
+
+```
+\documentclass[12pt]{article}
+\pagestyle{plain}
+\usepackage[margin=1.8cm]{geometry}
+\geometry{a4paper}
+\usepackage[parfill]{parskip}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[usenames]{color}
+\definecolor{cyan}{rgb}{0,1,1}
+\newcommand{\cyan}[1]{\textcolor{cyan}{#1}}
+\definecolor{black}{rgb}{0,0,0}
+\newcommand{\black}[1]{\textcolor{black}{#1}}
+
+\begin{document}
+
+\[
+  \text{read stall cycles} =
+  \cyan{\underbrace{\black{\frac{\text{reads}}{\text{program}}
+        \times \parbox{48pt}{read miss \\ rate (\%)}}}_{\text{read
+        miss per program}}} \times
+  \cyan{\underbrace{\black{\parbox{76pt}{read miss \\ penalty
+          (cycle)}}}_{\parbox{62pt}{\scriptsize\centering number of cycles \\
+        per read miss}}}
+\]
+
+\end{document}
+```
+
+See also 
+
+```
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{xcolor}
+
+\definecolor{underbrace}{RGB}{30,199,166}
+
+\newcommand{\textfrac}[1]{%
+  \begin{tabular}{@{}l@{}}#1\end{tabular}%
+}
+
+\begin{document}
+\[
+\colorlet{currentcolor}{.}
+\text{read stall cycles}=
+  \textcolor{underbrace}{%
+    {\underbrace{%
+       \textcolor{currentcolor}{%
+         \textfrac{reads\\\hline program}
+         \times
+         \textfrac{read miss\\[\arrayrulewidth]rate (\%)}
+       }
+     }_{\text{read miss per program}}
+    }
+  }
+  \times
+  \textcolor{underbrace}{%
+    {\underbrace{%
+       \textcolor{currentcolor}{%
+         \textfrac{read miss\\[\arrayrulewidth]penalty (cycle)}
+       }
+     }_{\substack{\text{number of cycles}\\\text{per read miss}}}
+    }
+  }
+\]
+
+\end{document}
+```
