@@ -1,5 +1,30 @@
 # LaTeX-tutorial
 
+## How to have a normal line of text inside a math environment and align it correctly in LaTeX?
+
+- [x] This sounds like a job for `\intertext` from amsmath:
+
+```
+\documentclass{article}
+
+\usepackage{mathtools}
+
+\begin{document}
+
+
+\begin{align}
+  \tilde{w}_{ij} &=
+    \begin{cases}
+      w_{ij} & \text{mit $P(i)$}\\
+      0 & \text{sonst}
+    \end{cases}\\       
+\intertext{This text be on the far left}
+  \tilde{w}_{ij} &= w_{ij} * P(i)      
+\end{align}
+
+\end{document}
+```
+
 ## How to embed a video on a beamer slide?
 
 First ddd the below segment in the preamble.
