@@ -425,3 +425,6 @@ See also
 
 \end{document}
 ```
+
+## [How to Plot a Function and Data in LaTeX
+](https://latexdraw.com/plot-a-function-and-data-in-latex/)
