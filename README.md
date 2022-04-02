@@ -465,7 +465,7 @@ Here is a piece of code that uses the above parameters:
 \end{document}
 ```
 
-## If one needs not to let some field visible in reference list, use the below statements in the preamble
+## If one needs not to let some fields be visible in the reference list, use the below statements in the preamble.
 
 ```
 \AtEveryBibitem{\clearfield{month}}
