@@ -465,6 +465,17 @@ Here is a piece of code that uses the above parameters:
 \end{document}
 ```
 
+## If one needs not to let some field visible in reference list, use the below statements in the preamble
+
+```
+\AtEveryBibitem{\clearfield{month}}
+\AtEveryCitekey{\clearfield{month}}
+\AtEveryBibitem{\clearfield{issue}}
+\AtEveryCitekey{\clearfield{issue}}
+\AtEveryBibitem{\clearfield{number}}
+\AtEveryCitekey{\clearfield{number}}
+```
+
 ## [PGFPlots Gallery](http://pgfplots.sourceforge.net/gallery.html)
 
 See also [1](https://towardsdatascience.com/how-to-create-publication-ready-plots-with-latex-4a095eb2f1bd)
