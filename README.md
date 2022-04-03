@@ -1,4 +1,4 @@
-# LaTeX-tutorial
+# Latex-tutorial
 
 ## How to have a normal line of text inside a math environment and align it correctly in LaTeX?
 
