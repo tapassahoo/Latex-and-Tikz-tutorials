@@ -491,3 +491,51 @@ Here is a piece of code that uses the above parameters:
 
 - [x] See [it](http://www.khirevich.com/latex/biblatex/)
 - [x] [Most important one](https://tex.stackexchange.com/questions/12806/guidelines-for-customizing-biblatex-styles)
+
+## Using biblatex to conveniently highlight your author name
+
+biblatex, the follow on to the venerable bibtex, offers some new functionality that may be useful for CVs. That is, it is typical in CV publication lists to highlight your name. Traditionally, you would hack the generated bibtex BBL files to do that, which can be time consuming and error prone, even when using scripts. You can also use LaTeX to, say, embolden your name directly into a bibtex database entry, but that's a brittle approach as that runs the risk of breaking bibtex database parsing.
+
+However, biblatex now supports "annotations" that allow you to highlight your name in bibliographies without intrusive hacking on the bibtex database or in the generated BBL.
+
+So, for example, in the technical report entry note the "Author+an" field where I specify "highlight" for the third author (me).
+
+```
+@techreport{ORNL-TM-2017-24,
+
+    Address = {Oak Ridge, TN 37831-6283 USA},
+
+	Author = {Melissa Allen and H M Abdul Aziz and Mark Coletti and Joseph H Kennedy and Sujithkumar S Nair and OluFemi A Omitaomu},
+
+	Author+an = {3=highlight},
+
+	Institution = {Oak Ridge National Laboratory},
+
+	Number = {ORNL/TM-2017/24},
+
+	Title = {Workshop on Human Activity at Scale in Earth System Models},
+
+	url = "https://portal17.ornl.gov/PTS/SitePages/PTS.aspx?mode=viewDoc&pubid=72539&docid=96196",
+
+	Year = 2017}
+```
+In my preamble, I add this:
+```
+\renewcommand*{\mkbibnamegiven}[1]{%
+
+\ifitemannotation{highlight}
+
+{\textbf{#1}}
+
+{#1}}
+
+
+
+\renewcommand*{\mkbibnamefamily}[1]{%
+
+\ifitemannotation{highlight}
+
+{\textbf{#1}}
+
+{#1}}
+```
