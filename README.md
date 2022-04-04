@@ -1,5 +1,94 @@
 # Latex-tutorial
 
+## Makefile for latex compilation
+
+[Click](https://gitlab.com/frasottile/latex-and-makefile/-/blob/master/Makefile)
+
+```
+PROJECT = 'latex_and_Makefile' 
+MAIN = article
+TEX_SOURCES = Makefile \
+              $(MAIN).tex \
+                section1.tex \
+                section2.tex \
+                section3.tex \
+              references.bib \
+              mystyle.sty 
+
+FIGURES := $(shell find images/* -type f)
+
+SHELL=/bin/bash
+DATE = $(shell date +"%d%b%Y")
+OPT = --interaction=nonstopmode
+
+all: $(MAIN).pdf
+
+final: final.pdf
+	$(MAKE) clean
+
+final.pdf: cover.pdf $(MAIN).pdf 
+	pdftk cover.pdf $(MAIN).pdf cat output final.pdf
+
+$(MAIN).pdf: $(TEX_SOURCES) $(FIGURES)
+	pdflatex $(MAIN)
+	makeindex $(MAIN)
+	bibtex $(MAIN)
+	pdflatex $(MAIN)
+	pdflatex $(MAIN)
+	@#latexmk -pdf -pvc -pdflatex="pdflatex $(OPT)" $(MAIN) 
+
+
+once: 
+	pdflatex $(MAIN)
+
+clean: 
+	-rm -f $(MAIN).{pdf,log,blg,bbl,aux,out,toc,idx,bcf,run.xml,ind,ilg,fls,fdb_latexmk} final.pdf
+
+targz:
+	$(MAKE) clean
+	$(MAKE) all
+	$(MAKE) clean
+	tar czf $(PROJECT)_$(DATE).tgz $(TEX_SOURCES) $(FIGURES) cover.pdf
+
+zip:
+	$(MAKE) clean
+	$(MAKE) all
+	$(MAKE) clean
+	zip -q $(PROJECT)_$(DATE).zip $(TEX_SOURCES) $(FIGURES) cover.pdf
+	
+.PHONY: clean all
+```
+
+## How to create own package
+
+```
+\ProvidesPackage{mystyle}
+\usepackage[margin=2cm,bottom=3cm]{geometry}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{makeidx}
+\makeindex
+\usepackage[backend=bibtex,style=phys]{biblatex}
+\addbibresource{references.bib}
+\author{Francesco}
+\title{Compiling \LaTeX\ projects :: use of Makefile \includegraphics[width=1cm]{images/splash.png}
+```
+
+## LaTeX/Tips and Tricks
+[Click](https://en.wikibooks.org/wiki/LaTeX/Tips_and_Tricks)
+
+- [x] Spell-checking and Word Counting
+
+If you want to spell-check your document, you can use the command-line aspell, hunspell (preferably), or ispell programs.
+
+  ```
+ispell yourfile.tex
+aspell --mode=tex -c yourfile.tex
+hunspell -l -t -i utf-8 yourfile.tex
+```
+
+
+
 ## How to have a normal line of text inside a math environment and align it correctly in LaTeX?
 
 - [x] This sounds like a job for `\intertext` from amsmath:
@@ -195,93 +284,8 @@ open -a Adobe\ Acrobat talk-Tapas-Sahoo.pdf
 
 For more information [see](https://tex.stackexchange.com/questions/44217/how-can-i-stop-footcite-from-hijacking-my-beamer-columns)
 
-## LaTeX/Tips and Tricks
-[Click](https://en.wikibooks.org/wiki/LaTeX/Tips_and_Tricks)
-
-- [x] Spell-checking and Word Counting
-
-If you want to spell-check your document, you can use the command-line aspell, hunspell (preferably), or ispell programs.
-
-  ```
-ispell yourfile.tex
-aspell --mode=tex -c yourfile.tex
-hunspell -l -t -i utf-8 yourfile.tex
-```
-
-## Makefile for latex compilation
-
-[Click](https://gitlab.com/frasottile/latex-and-makefile/-/blob/master/Makefile)
-
-```
-PROJECT = 'latex_and_Makefile' 
-MAIN = article
-TEX_SOURCES = Makefile \
-              $(MAIN).tex \
-                section1.tex \
-                section2.tex \
-                section3.tex \
-              references.bib \
-              mystyle.sty 
-
-FIGURES := $(shell find images/* -type f)
-
-SHELL=/bin/bash
-DATE = $(shell date +"%d%b%Y")
-OPT = --interaction=nonstopmode
-
-all: $(MAIN).pdf
-
-final: final.pdf
-	$(MAKE) clean
-
-final.pdf: cover.pdf $(MAIN).pdf 
-	pdftk cover.pdf $(MAIN).pdf cat output final.pdf
-
-$(MAIN).pdf: $(TEX_SOURCES) $(FIGURES)
-	pdflatex $(MAIN)
-	makeindex $(MAIN)
-	bibtex $(MAIN)
-	pdflatex $(MAIN)
-	pdflatex $(MAIN)
-	@#latexmk -pdf -pvc -pdflatex="pdflatex $(OPT)" $(MAIN) 
 
 
-once: 
-	pdflatex $(MAIN)
-
-clean: 
-	-rm -f $(MAIN).{pdf,log,blg,bbl,aux,out,toc,idx,bcf,run.xml,ind,ilg,fls,fdb_latexmk} final.pdf
-
-targz:
-	$(MAKE) clean
-	$(MAKE) all
-	$(MAKE) clean
-	tar czf $(PROJECT)_$(DATE).tgz $(TEX_SOURCES) $(FIGURES) cover.pdf
-
-zip:
-	$(MAKE) clean
-	$(MAKE) all
-	$(MAKE) clean
-	zip -q $(PROJECT)_$(DATE).zip $(TEX_SOURCES) $(FIGURES) cover.pdf
-	
-.PHONY: clean all
-```
-
-## How to create own package
-
-```
-\ProvidesPackage{mystyle}
-\usepackage[margin=2cm,bottom=3cm]{geometry}
-\usepackage{graphicx}
-\usepackage{lipsum}
-\usepackage{makeidx}
-\makeindex
-\usepackage[backend=bibtex,style=phys]{biblatex}
-\addbibresource{references.bib}
-\author{Francesco}
-\title{Compiling \LaTeX\ projects :: use of Makefile \includegraphics[width=1cm]{images/splash.png}
-
-```
 
 ## [Top 5 Beamer Tips](https://nhigham.com/2013/01/18/top-5-beamer-tips/)
 
@@ -348,7 +352,7 @@ and then typing `\section[short_title]{long_title}` between frames, where `short
 \setbeamertemplate{headline}{}
 ```
 
-## [Top BibTeX Tips](https://nhigham.com/tag/bibtex/)
+
 
 ## Cross out with arrow as in "goes to zero" [duplicate]
 
@@ -426,6 +430,13 @@ See also
 \end{document}
 ```
 
+
+# Important tricks for Tikz
+
+## [PGFPlots Gallery](http://pgfplots.sourceforge.net/gallery.html)
+
+See also [1](https://towardsdatascience.com/how-to-create-publication-ready-plots-with-latex-4a095eb2f1bd)
+
 ## [How to Plot a Function and Data in LaTeX](https://latexdraw.com/plot-a-function-and-data-in-latex/)
 
 Here is a piece of code that uses the above parameters: 
@@ -465,6 +476,10 @@ Here is a piece of code that uses the above parameters:
 \end{document}
 ```
 
+# Guidelines for Biblatex customerization
+
+## [Top BibTeX Tips](https://nhigham.com/tag/bibtex/)
+
 ## If one needs not to let some fields be visible in the reference list, use the below statements in the preamble.
 
 ```
@@ -475,7 +490,3 @@ Here is a piece of code that uses the above parameters:
 \AtEveryBibitem{\clearfield{number}}
 \AtEveryCitekey{\clearfield{number}}
 ```
-
-## [PGFPlots Gallery](http://pgfplots.sourceforge.net/gallery.html)
-
-See also [1](https://towardsdatascience.com/how-to-create-publication-ready-plots-with-latex-4a095eb2f1bd)
