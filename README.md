@@ -220,7 +220,6 @@ Then inclde a frame as below -
 ```
 open -a Adobe\ Acrobat talk-Tapas-Sahoo.pdf
 ```
-
 ## Beamer references for placing the references at footnote
 
 ```
@@ -351,9 +350,6 @@ and then typing `\section[short_title]{long_title}` between frames, where `short
 ```
 \setbeamertemplate{headline}{}
 ```
-
-
-
 ## Cross out with arrow as in "goes to zero" [duplicate]
 
 - [x] Invoke the package `\usepackage{cancel}` then use the following command `\cancelto{0}{x}` in math mode where `x` is being cancelled to the number zero. A `\cancel{x}` cross the term out without any number.
@@ -429,8 +425,6 @@ See also
 
 \end{document}
 ```
-
-
 # Important tricks for Tikz
 
 ## [PGFPlots Gallery](http://pgfplots.sourceforge.net/gallery.html)
@@ -475,7 +469,6 @@ Here is a piece of code that uses the above parameters:
 \end{tikzpicture}
 \end{document}
 ```
-
 # Guidelines for Biblatex customerization
 
 ## [Top BibTeX Tips](https://nhigham.com/tag/bibtex/)
@@ -490,3 +483,11 @@ Here is a piece of code that uses the above parameters:
 \AtEveryBibitem{\clearfield{number}}
 \AtEveryCitekey{\clearfield{number}}
 ```
+## How to adjust the breaking in the bibliography?
+
+- [x] See [it](https://tex.stackexchange.com/questions/442308/how-to-adjust-the-breaking-in-the-bibliography)
+
+## Tips on Writing a Thesis in LaTeX
+
+- [x] See [it](http://www.khirevich.com/latex/biblatex/)
+- [x] [Most important one](https://tex.stackexchange.com/questions/12806/guidelines-for-customizing-biblatex-styles)
