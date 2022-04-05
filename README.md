@@ -429,7 +429,9 @@ See also
 
 ## [PGFPlots Gallery](http://pgfplots.sourceforge.net/gallery.html)
 
-See also [1](https://towardsdatascience.com/how-to-create-publication-ready-plots-with-latex-4a095eb2f1bd)
+- [x] See also [1](https://towardsdatascience.com/how-to-create-publication-ready-plots-with-latex-4a095eb2f1bd)
+
+- [x] [Various options of tikz plot](How to Create Publication-Ready Plots with LaTeX)
 
 ## [How to Plot a Function and Data in LaTeX](https://latexdraw.com/plot-a-function-and-data-in-latex/)
 
