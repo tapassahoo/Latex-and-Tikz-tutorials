@@ -148,7 +148,7 @@ that basically says, any floats that were included above this point in the code 
 \addcontentsline{toc}{chapter}{Bibliography}
 ```
 
-For more informatios [see]{https://thewanderingengineer.com/2015/06/23/latex-tips-and-tricks-for-thesis-writing/}
+For more informatios (see)[https://thewanderingengineer.com/2015/06/23/latex-tips-and-tricks-for-thesis-writing/]
 
 ## How to have a normal line of text inside a math environment and align it correctly in LaTeX?
 
