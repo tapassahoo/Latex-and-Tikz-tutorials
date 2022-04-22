@@ -87,7 +87,37 @@ aspell --mode=tex -c yourfile.tex
 hunspell -l -t -i utf-8 yourfile.tex
 ```
 
+## Demo mode for images
 
+```
+\usepackage[demo]{graphicsx}
+```
+
+## List of figures, list of tables, and table of contents
+
+```
+\tableofcontents
+\listoffigures
+\listoftables
+```
+
+## Leaving something out of the Table of Contents
+
+If you insert an asterisks after chapter, it will leave it off of the table of contents:
+
+```
+\chapter*{Super Cool Chapter}
+```
+
+## Adjusting the Table of Contents depth
+
+The automatic table of contents is nice but by default it shows everything: chapters, sections, sub sections, sub sub sections, etc.  You can change this by using:
+
+```
+\setcounter{tocdepth}{1}
+```
+
+0 means only chapters, 1 includes sections, 2 includes subsections, etc.
 
 ## How to have a normal line of text inside a math environment and align it correctly in LaTeX?
 
