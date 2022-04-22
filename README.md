@@ -119,6 +119,37 @@ The automatic table of contents is nice but by default it shows everything: chap
 
 0 means only chapters, 1 includes sections, 2 includes subsections, etc.
 
+## PDF links
+
+```
+\usepackage{hyperref}
+```
+This can sometimes cause problems if you use labels for figures.  This can be fixed by putting this line in the preamble:
+```
+\AtBeginDocument{\let\textlabel\label}
+```
+
+## Float Barrier
+
+```
+\FloatBarrier (capitalization important) 
+````
+that basically says, any floats that were included above this point in the code cannot appear after this line. 
+
+## Multiple Captions
+
+```
+\caption[This appears in the list of figures]{This appears under the figure.}
+```
+
+## Add to Table of Contents
+
+```
+\addcontentsline{toc}{chapter}{Bibliography}
+```
+
+For more informatios [see]{https://thewanderingengineer.com/2015/06/23/latex-tips-and-tricks-for-thesis-writing/}
+
 ## How to have a normal line of text inside a math environment and align it correctly in LaTeX?
 
 - [x] This sounds like a job for `\intertext` from amsmath:
