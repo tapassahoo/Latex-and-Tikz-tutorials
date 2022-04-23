@@ -1,5 +1,16 @@
 # Latex-tutorial
 
+## Comment out a block of lines
+```
+\newcommand{\comment}[1]{}
+
+\comment{
+This line of text won't show
+
+This one won't either
+}
+```
+
 ## Makefile for latex compilation
 
 [Click](https://gitlab.com/frasottile/latex-and-makefile/-/blob/master/Makefile)
