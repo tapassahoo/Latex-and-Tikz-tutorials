@@ -1,5 +1,11 @@
 # Latex-tutorial
 
+## If you use \includeonlyframe{slide1,slid10} use
+```
+\begin{frame}[noframenumbering,label=ploject2-pigs]
+```
+for getting propper numbering on pages.
+
 ## Notes on beamer
 ````
 \documentclass[12pt]{beamer}
